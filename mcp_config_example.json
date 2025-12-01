@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "dingtalk-doc": {
+      "command": "python3",
+      "args": [
+        "/Users/huangyunkun/Documents/AIGC/dingtalk_api/mcp_dingtalk_doc/server.py"
+      ],
+      "env": {
+        "DINGTALK_COOKIE": "your_dingtalk_cookie_here"
+      }
+    }
+  }
+}
