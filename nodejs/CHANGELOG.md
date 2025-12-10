@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-12-10
+
+### Added
+
+- 📚 添加 Windows 和 macOS/Linux 平台配置差异说明
+- ⚠️ Windows 不支持 npx 的警告和解决方案
+- 📊 平台对比表格
+
+### Fixed
+
+- 🪟 修复 Windows 平台配置说明，明确需要全局安装
+
+### Documentation
+
+- 更新 README.md 添加平台差异说明
+- 更新 MCP_CONFIG_EXAMPLES.md 添加详细平台对比
+- 添加 Windows 专用安装步骤
+
 ## [1.0.0] - 2025-12-10
 
 ### Added
