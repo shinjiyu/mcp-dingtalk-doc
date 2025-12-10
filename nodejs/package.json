@@ -22,6 +22,7 @@
     "prepublishOnly": "npm run build",
     "prepare": "npm run build",
     "prepack": "npm run build",
+    "postinstall": "npx playwright install chromium --with-deps || echo 'Playwright安装可选，首次使用自动登录时会提示安装'",
     "precheck": "node scripts/pre-publish-check.js",
     "cookie:login": "tsx src/cookie-manager.ts --login",
     "cookie:check": "tsx src/cookie-manager.ts --check",
