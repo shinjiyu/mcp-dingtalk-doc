@@ -23,14 +23,14 @@
 
 | 特性 | Python 版本 | Node.js 版本 |
 |------|------------|--------------|
-| **启动速度** | ~500ms | **~100ms (快 5x)** ⚡ |
-| **包体积** | ~50MB | **~30MB (小 40%)** 📦 |
-| **MCP SDK** | 社区版 | **官方主推** ✅ |
-| **异步处理** | asyncio | **原生 async/await** |
-| **类型安全** | Pydantic | **TypeScript** |
-| **Cookie 管理** | 手动配置 | **智能自动管理** 🔥 |
-| **浏览器自动登录** | ❌ | **✅ Playwright 自动登录** |
-| **推荐场景** | Python 技术栈 | **新项目、追求性能** |
+| **启动速度** | ~500ms | ~100ms |
+| **包体积** | ~50MB | ~30MB |
+| **MCP SDK** | 社区版 | 官方 SDK |
+| **异步处理** | asyncio | async/await |
+| **类型安全** | Pydantic | TypeScript |
+| **Cookie 管理** | 环境变量配置 | 智能自动管理 |
+| **浏览器自动登录** | 需手动获取 | Playwright 自动登录 |
+| **推荐场景** | Python 技术栈 | Node.js 技术栈 |
 
 ### 📁 目录结构
 
@@ -77,7 +77,7 @@ export DINGTALK_COOKIE="your_cookie_here"
 # 编辑 ~/.cursor/mcp.json 或 %APPDATA%\Cursor\mcp.json
 ```
 
-#### ⚡ Node.js 版本 - [查看详细文档](./nodejs/README.md) (推荐)
+#### ⚡ Node.js 版本 - [查看详细文档](./nodejs/README.md)
 
 ```bash
 # 1. 进入 Node.js 目录
@@ -168,23 +168,25 @@ AI 会自动调用 MCP 工具解析文档！
 
 ## 🆚 版本对比详情
 
-### Python 版本优势
+### Python 版本特性
 
 - ✅ 成熟稳定，已在多个项目中使用
 - ✅ Python 生态丰富，易于扩展
 - ✅ 适合 Python 技术栈的团队
 - ✅ 依赖简单，安装快速
+- ✅ 完善的类型提示（Pydantic）
+- ✅ 强大的异步处理能力（asyncio）
 
-### Node.js 版本优势
+### Node.js 版本特性
 
-- ⚡ **启动速度快 5 倍**（100ms vs 500ms）
-- 📦 **包体积小 40%**（30MB vs 50MB）
-- 🔥 **智能 Cookie 管理**：自动检测失效并引导登录
-- 🌐 **Playwright 自动登录**：无需手动复制 Cookie
-- 💾 **Cookie 持久化**：7-30 天内无需重新登录
-- ✅ **MCP 官方 SDK**：更好的兼容性和支持
-- 🎯 **TypeScript 类型安全**：更少的运行时错误
-- ⚡ **原生异步**：性能更优
+- ✅ 启动速度较快（约100ms）
+- ✅ 包体积相对较小（约30MB）
+- ✅ 智能 Cookie 管理：自动检测失效并引导登录
+- ✅ Playwright 自动登录：无需手动复制 Cookie
+- ✅ Cookie 持久化：7-30 天内无需重新登录
+- ✅ MCP 官方 SDK：官方支持和维护
+- ✅ TypeScript 类型安全：编译时错误检查
+- ✅ 原生 async/await 语法
 
 ## 🍪 Cookie 管理对比
 
@@ -233,14 +235,32 @@ npm run cookie:check
 
 ### Node.js 版本配置
 
+#### 使用 npx（推荐，无需安装）✨
+
 ```json
 {
   "mcpServers": {
-    "dingtalk-doc-nodejs": {
+    "dingtalk-doc": {
+      "command": "npx",
+      "args": ["-y", "mcp-dingtalk-doc"],
+      "env": {
+        "DINGTALK_COOKIE": "可选，会自动登录"
+      }
+    }
+  }
+}
+```
+
+#### 从源码使用
+
+```json
+{
+  "mcpServers": {
+    "dingtalk-doc": {
       "command": "node",
       "args": ["C:/path/to/nodejs/dist/index.js"],
       "env": {
-        "DINGTALK_COOKIE": "your_cookie (可选，会自动登录)"
+        "DINGTALK_COOKIE": "可选"
       }
     }
   }
