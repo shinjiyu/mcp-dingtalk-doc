@@ -235,33 +235,49 @@ npm run cookie:check
 
 ### Node.js 版本配置
 
-#### 使用 npx（推荐，无需安装）✨
+> ⚠️ **注意**：Windows 和 macOS/Linux 配置方式不同！
+
+#### 🍎 macOS / Linux：使用 npx（推荐）
 
 ```json
 {
   "mcpServers": {
     "dingtalk-doc": {
       "command": "npx",
-      "args": ["-y", "mcp-dingtalk-doc"],
-      "env": {
-        "DINGTALK_COOKIE": "可选，会自动登录"
-      }
+      "args": ["-y", "mcp-dingtalk-doc"]
     }
   }
 }
 ```
 
-#### 从源码使用
+#### 🪟 Windows：必须先全局安装
+
+```bash
+# 步骤 1：全局安装
+npm install -g mcp-dingtalk-doc
+```
+
+```json
+// 步骤 2：配置 MCP
+{
+  "mcpServers": {
+    "dingtalk-doc": {
+      "command": "mcp-dingtalk-doc"
+    }
+  }
+}
+```
+
+> ⚠️ Windows 不支持 npx 方式，因为 Windows 需要 .cmd 包装脚本
+
+#### 从源码使用（所有平台）
 
 ```json
 {
   "mcpServers": {
     "dingtalk-doc": {
       "command": "node",
-      "args": ["C:/path/to/nodejs/dist/index.js"],
-      "env": {
-        "DINGTALK_COOKIE": "可选"
-      }
+      "args": ["/path/to/nodejs/dist/index.js"]
     }
   }
 }
