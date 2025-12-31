@@ -1,6 +1,6 @@
-# 钉钉文档解析 MCP 服务器
+# DingTalk Docs（钉钉文档）MCP Server：mcp-dingtalk-doc
 
-> 🎯 一个用于解析钉钉文档内容并生成 HTML 的 MCP (Model Context Protocol) 服务器
+> 🎯 一个用于解析 **钉钉文档（DingTalk Docs / AliDocs）** 内容并生成 HTML 的 **MCP（Model Context Protocol）** 服务器（支持 Cursor / Claude Desktop 等 MCP 客户端）
 
 [![MCP](https://img.shields.io/badge/MCP-1.0.0-blue)](https://modelcontextprotocol.io)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-green)](https://www.python.org/)
@@ -16,6 +16,11 @@
 - 🌐 **灵活输入**: 支持完整 URL 或 NODE_ID
 - 📁 **智能归档**: 按文档标题自动创建文件夹
 - 🍪 **智能 Cookie 管理**: 自动检测失效并引导登录（Node.js 版本）
+
+## 🔎 关键词（SEO）
+
+- **中文**：钉钉文档、钉钉文档解析、MCP、Model Context Protocol、Cursor MCP
+- **English**: DingTalk Docs, DingTalk document parser, MCP server, Model Context Protocol, Cursor MCP
 
 ## 🚀 两个版本
 
