@@ -1,7 +1,7 @@
 {
-  "name": "mcp-dingtalk-doc-nodejs",
-  "version": "1.0.0",
-  "description": "钉钉文档解析 MCP 服务器 - Node.js/TypeScript 实现",
+  "name": "mcp-dingtalk-doc",
+  "version": "1.1.0",
+  "description": "钉钉文档 MCP 服务器 | DingTalk Document MCP Server - 钉钉文档解析，支持自动登录和Cookie管理",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -21,10 +21,26 @@
   },
   "keywords": [
     "mcp",
+    "钉钉文档",
+    "钉钉文档mcp",
+    "钉钉mcp",
+    "钉钉",
     "dingtalk",
-    "document-parser",
-    "alidocs"
+    "dingtalk-mcp",
+    "dingtalk-doc",
+    "文档解析",
+    "model-context-protocol",
+    "cursor",
+    "claude",
+    "ai-tools",
+    "AI工具",
+    "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hykfft/mcp-dingtalk-doc"
+  },
+  "homepage": "https://github.com/hykfft/mcp-dingtalk-doc#readme",
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
