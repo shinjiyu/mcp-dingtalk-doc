@@ -28,21 +28,32 @@
 
 ## 📦 安装
 
-### 方式 1：npx 直接使用（推荐）✨
+> **平台差异**：**Windows** 需全局安装，MCP 配置里直接使用命令 `mcp-dingtalk-doc`；**macOS** 可用 npx，无需全局安装。
 
-**无需安装**，在 MCP 配置中直接使用 `npx mcp-dingtalk-doc` 即可！
+### macOS：npx 直接使用（推荐）✨
 
-跳转到 [配置 MCP](#4-配置-mcp-cursorclaude-desktop) 章节查看如何配置。
+**仅 macOS/Linux** 支持。无需安装，MCP 配置中使用 `npx` 即可（完整示例见下方「配置 MCP」章节）：
 
-### 方式 2：全局安装
+```json
+"command": "npx",
+"args": ["-y", "mcp-dingtalk-doc"]
+```
 
-如果需要更快的启动速度，可以全局安装：
+### Windows：必须全局安装
+
+**Windows 下无法使用 npx**，请先全局安装，再在 MCP 里配置命令 `mcp-dingtalk-doc`：
 
 ```bash
 npm install -g mcp-dingtalk-doc
 ```
 
-### 方式 3：从源码安装
+MCP 配置中直接写：
+
+```json
+"command": "mcp-dingtalk-doc"
+```
+
+### 从源码安装（所有平台）
 
 ```bash
 # 克隆仓库
@@ -109,25 +120,41 @@ npm start
 
 ### 4. 配置 MCP (Cursor/Claude Desktop)
 
-编辑配置文件：
+配置文件路径：
 
-**Cursor**:
-- Windows: `%APPDATA%\Cursor\mcp.json`
-- Mac/Linux: `~/.cursor/mcp.json` 或 `~/Library/Application Support/Cursor/mcp.json`
-
-**Claude Desktop**:
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-- Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Cursor**：Windows `%APPDATA%\Cursor\mcp.json`；Mac `~/.cursor/mcp.json` 或 `~/Library/Application Support/Cursor/mcp.json`
+- **Claude Desktop**：Windows `%APPDATA%\Claude\claude_desktop_config.json`；Mac `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 ---
 
-## ⚠️ Windows 和 macOS/Linux 配置差异
+## ⚠️ Windows 与 macOS 配置（必读）
 
-> **重要提示**：Windows 和 macOS/Linux 下的配置方式不同！
+| 平台 | 安装方式 | MCP 配置 |
+|------|----------|----------|
+| **Windows** | 必须全局安装：`npm install -g mcp-dingtalk-doc` | 直接配置命令 `mcp-dingtalk-doc` |
+| **macOS / Linux** | 可不安装，用 npx | 使用 `npx` + `mcp-dingtalk-doc` |
 
-### 🍎 macOS / Linux：使用 npx（推荐）
+### 🪟 Windows：全局安装 + 直接配 mcp-dingtalk-doc
 
-**无需安装，自动使用最新版本**：
+1. 全局安装：
+   ```bash
+   npm install -g mcp-dingtalk-doc
+   ```
+2. MCP 配置里**只写命令** `mcp-dingtalk-doc`（不要用 npx）：
+   ```json
+   {
+     "mcpServers": {
+       "dingtalk-doc": {
+         "command": "mcp-dingtalk-doc"
+       }
+     }
+   }
+   ```
+3. 重启 Cursor。
+
+### 🍎 macOS / Linux：可用 npx（无需全局安装）
+
+MCP 配置示例：
 
 ```json
 {
@@ -140,57 +167,15 @@ npm start
 }
 ```
 
-**优点**：
-- ✅ 无需全局安装
-- ✅ 自动使用最新版本
-- ✅ 配置简单
+- 仅 Mac/Linux 支持此种方式；Windows 请用上方「Windows」配置。
+
+### 🔍 为什么 Windows 不能用 npx？
+
+Windows 下 npx 执行 bin 脚本存在兼容问题，需通过全局安装得到 `.cmd` 包装脚本，因此 **Windows 必须全局安装，MCP 直接配置 `mcp-dingtalk-doc`**。
 
 ---
 
-### 🪟 Windows：必须先全局安装
-
-> ⚠️ **Windows 不支持直接使用 npx**！由于 Windows 的命令行兼容性问题，npx 无法正确执行 bin 脚本。
-
-**步骤 1：全局安装**
-
-```bash
-npm install -g mcp-dingtalk-doc
-```
-
-**步骤 2：配置 MCP**
-
-```json
-{
-  "mcpServers": {
-    "dingtalk-doc": {
-      "command": "mcp-dingtalk-doc"
-    }
-  }
-}
-```
-
-**步骤 3：重启 Cursor**
-
----
-
-### 📊 平台对比
-
-| 平台 | 推荐配置方式 | npx 支持 | 需要全局安装 |
-|------|-------------|---------|-------------|
-| **macOS** | npx | ✅ 支持 | ❌ 不需要 |
-| **Linux** | npx | ✅ 支持 | ❌ 不需要 |
-| **Windows** | 全局安装 | ❌ 不支持 | ✅ 必须 |
-
-### 🔍 为什么 Windows 不支持 npx？
-
-Windows 上 `npx` 有已知的兼容性问题：
-- Windows 需要 `.cmd` 包装脚本来执行 Node.js 脚本
-- `npx` 的临时目录处理在 Windows 上无法正确创建这些脚本
-- `npm install -g` 会自动创建正确的 `.cmd` 包装脚本
-
----
-
-#### 方式 3: 从源码使用（所有平台）
+#### 从源码使用（所有平台）
 
 如果从源码克隆安装：
 

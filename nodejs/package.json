@@ -1,6 +1,6 @@
 {
   "name": "mcp-dingtalk-doc",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "钉钉文档解析 MCP 服务器 - Node.js/TypeScript 实现，支持智能 Cookie 管理和自动登录",
   "type": "module",
   "main": "dist/index.js",
